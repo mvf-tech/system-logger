@@ -1,0 +1,21 @@
+{
+    "name": "MVF/system_logger",
+    "autoload": {
+        "psr-4": {
+            "MVF\\SystemLogger\\": "src/"
+        }
+    },
+    "description": "A package used to perform DataDog and system logs",
+    "type": "library",
+    "authors": [
+        {
+            "email": "dovydas.rupsys@mvfglobal.com",
+            "name": "Dovydas Rupsys"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "graze/dog-statsd": "^0.3.3"
+    },
+    "license": "MIT"
+}
