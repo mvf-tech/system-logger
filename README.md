@@ -4,7 +4,7 @@
 
 ### Installation and Setup
 
-1. Run `composer require 0nedark/system_logger` to install the package
+1. Run `composer require mvf-tech/system_logger` to install the package
 2. You will also have to set `DATADOG_PROJECT_NAME`, `DATADOG_SERVICE_NAME` and `DATADOG_ENVIRONMENT` ENV variables
 
 ### Basic Use
