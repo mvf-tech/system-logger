@@ -1,5 +1,5 @@
 {
-    "name": "MVF/system_logger",
+    "name": "mvf-tech/system_logger",
     "autoload": {
         "psr-4": {
             "MVF\\SystemLogger\\": "src/"
