@@ -1,0 +1,8 @@
+suites:
+  unit:
+    namespace: MVF\SystemLogger
+    psr4_prefix: MVF\SystemLogger
+#extensions:
+#  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+#    lower_upper_bound: 60
+#    high_lower_bound: 90

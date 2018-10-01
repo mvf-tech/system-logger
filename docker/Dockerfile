@@ -1,8 +1,7 @@
 FROM php:7.1-alpine
 
 RUN apk add $PHPIZE_DEPS \
-    && pecl install xdebug \
-    && docker-php-ext-enable xdebug
+    && pecl install xdebug
 
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
@@ -20,6 +19,7 @@ COPY build.sh /scripts/build.sh
 COPY bin/patch /usr/local/bin/patch
 COPY bin/minor /usr/local/bin/minor
 COPY bin/major /usr/local/bin/major
+COPY tests.sh /usr/local/bin/tests
 
 # Setup entrypoint
 COPY entrypoint.sh /entrypoint.sh
