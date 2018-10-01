@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+  package:
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    container_name: system-logger
+    volumes:
+      - ./:/package
