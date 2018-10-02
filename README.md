@@ -2,6 +2,10 @@
 
 > A package used to perform DataDog and system logs
 
+### Releases
+* 2.0.0 - [Patch Notes](./releases/2.0.0.md)
+* 1.0.0
+
 ### Installation and Setup
 
 1. Run `composer require mvf-tech/system_logger` to install the package
