@@ -13,7 +13,7 @@ class Unique extends DataDog implements RemoteLogInterface
      * @param string $suffix String that is appended to the DataDog metric name
      * @param int    $value  Value to be logged in DataDog
      *
-     * @deprecated 4.0.0
+     * @deprecated 2.0.0
      */
     public function __construct(string $suffix, int $value)
     {
@@ -35,13 +35,13 @@ class Unique extends DataDog implements RemoteLogInterface
     {
         try {
             $this->client->set(
-                $this->project . '.' . $this->environment . $this->suffix,
+                $this->project . $this->suffix,
                 $this->value,
                 $this->addJustKeys($tags, ['unique'])
             );
         } catch (\Exception $e) {
             $this->client->histogram(
-                $this->project . '.' . $this->environment . '.datadog',
+                $this->project . '.datadog',
                 1,
                 1,
                 [

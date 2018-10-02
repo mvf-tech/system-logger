@@ -76,17 +76,6 @@ class DataDogSpec extends ObjectBehavior
         $this->getServiceName()->shouldReturn('test');
     }
 
-    public function it_should_have_default_datadog_environment_name()
-    {
-        $this->getEnvironment()->shouldReturn('notset');
-    }
-
-    public function it_should_load_service_datadog_environment_from_env()
-    {
-        $this->env->get('DATADOG_ENVIRONMENT', 'notset')->willReturn('test');
-        $this->getEnvironment()->shouldReturn('test');
-    }
-
     public function it_should_have_a_default_port_number()
     {
         $this->getPort()->shouldReturn(8125);

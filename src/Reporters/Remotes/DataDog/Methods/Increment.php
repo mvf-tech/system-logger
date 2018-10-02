@@ -16,7 +16,7 @@ class Increment extends DataDog implements RemoteLogInterface
      * @param int    $value      Value to be logged in DataDog
      * @param float  $sampleRate The rate of sampling
      *
-     * @deprecated 4.0.0
+     * @deprecated 2.0.0
      */
     public function __construct(string $suffix, int $value, float $sampleRate = 1.0)
     {
@@ -39,14 +39,14 @@ class Increment extends DataDog implements RemoteLogInterface
     {
         try {
             $this->client->increment(
-                $this->project . '.' . $this->environment . $this->suffix,
+                $this->project . $this->suffix,
                 $this->value,
                 $this->sampleRate,
                 $this->addJustKeys($tags)
             );
         } catch (\Exception $e) {
             $this->client->histogram(
-                $this->project . '.' . $this->environment . '.datadog',
+                $this->project . '.datadog',
                 1,
                 1,
                 [

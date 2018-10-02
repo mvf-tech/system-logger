@@ -16,7 +16,6 @@ class DataDog
     protected $client;
     protected $project;
     protected $service;
-    protected $environment;
     protected $value = '';
     protected $suffix = '';
     private $host;
@@ -35,7 +34,6 @@ class DataDog
 
         $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
         $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
-        $this->environment = $env->get('DATADOG_ENVIRONMENT', 'notset');
 
         $this->host = $env->get('DATADOG_HOST_ENVVAR', 'DATADOG_HOST');
         $this->host = $env->get($this->host, '127.0.0.1');
@@ -101,16 +99,6 @@ class DataDog
     }
 
     /**
-     * Gets the environment.
-     *
-     * @return string
-     */
-    public function getEnvironment()
-    {
-        return $this->environment;
-    }
-
-    /**
      * Gets the DataDog port as an int.
      *
      * @return int
@@ -128,6 +116,8 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Decrement
+     *
+     * @deprecated 2.0.0
      */
     public static function decrement(string $suffix, int $value, float $sampleRate = 1.0): Decrement
     {
@@ -142,6 +132,8 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Increment
+     *
+     * @deprecated 2.0.0
      */
     public static function increment(string $suffix, int $value, float $sampleRate = 1.0): Increment
     {

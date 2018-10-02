@@ -16,7 +16,7 @@ class Time extends DataDog implements RemoteLogInterface
      * @param callable|float $time   Either a number that should be logged to DataDog
      *                               or a closure that will be timed internally
      *
-     * @deprecated 4.0.0
+     * @deprecated 2.0.0
      */
     public function __construct(string $suffix, $time)
     {
@@ -57,13 +57,13 @@ class Time extends DataDog implements RemoteLogInterface
 
         try {
             $this->client->timing(
-                $this->project . '.' . $this->environment . $this->suffix,
+                $this->project . $this->suffix,
                 $this->value,
                 $this->addJustKeys($tags, ['time'])
             );
         } catch (\Exception $e) {
             $this->client->histogram(
-                $this->project . '.' . $this->environment . '.datadog',
+                $this->project . '.datadog',
                 1,
                 1,
                 [

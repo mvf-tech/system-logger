@@ -48,6 +48,16 @@ class Log
         }
     }
 
+    /**
+     * Performs the logging operation.
+     *
+     * @param array|(RemoteLogInterface|HostLogInterface)[] $allLoggers Implementations of the logging procedure
+     * @param callable                                      $filter     Filter used to select the right loggers for the
+     *                                                                  handler
+     * @param callable                                      $handler    Runs the log operation
+     *
+     * @return array
+     */
     private function log(array $allLoggers, callable $filter, callable $handler): array
     {
         $loggers = select($allLoggers, $filter);
