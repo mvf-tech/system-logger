@@ -9,7 +9,7 @@
 ### Installation and Setup
 
 1. Run `composer require mvf-tech/system_logger` to install the package
-2. You will also have to set `DATADOG_PROJECT_NAME`, `DATADOG_SERVICE_NAME` and `DATADOG_ENVIRONMENT` ENV variables
+2. You will also have to set `DATADOG_PROJECT_NAME` and `DATADOG_SERVICE_NAME` ENV variables
 
 ### Basic Use
 
@@ -100,16 +100,14 @@ include:
 
 methods:
 
-- `::increment(string $suffix, int $value, float $sample_rate = 1.0): Increment`
-- `::decrement(string $suffix, int $value, float $sample_rate = 1.0): Decrement`
 - `::gauge(string $suffix, int $value): Gauge`
 - `::histogram(string $suffix, int $value, float $sample_rate = 1.0): Histogram`
 - `::time(string $suffix, (float|callable) $time): Time`
 - `::unique(string $suffix, int $value): Unique`
 
 `suffix` is the last part of your DataDog metric name. All DataDog metric names will consist of 
-`DATADOG_PROJECT_NAME.DATADOG_ENVIRONMENT.suffix` where `DATADOG_PROJECT_NAME` and `DATADOG_ENVIRONMENT` are loaded from ENV, if these variables are not
-set then the beginning of your metric will default to `notset.notset.suffix`. In Addition all DataDog logs will be sent
+`DATADOG_PROJECT_NAME.suffix` where `DATADOG_PROJECT_NAME` is loaded from ENV, if these variables are not
+set then the beginning of your metric will default to `notset.suffix`. In Addition all DataDog logs will be sent
 with additional tag `DATADOG_SERVICE_NAME` which is also loaded from ENV, if this variable is not set then it will default to
 value `notset`.
 
@@ -145,8 +143,8 @@ include:
 methods:
 
 - `->send(string[] $tags): \Exception|null` : `tags` array will always have at least these values 
-`[ "<info|warning|error>", "message" => "<message>" ]`. If an exception is thrown in the reporter then it should be
-caught and returned, the system logger will re-throw it once all other logs are performed.
+`[ "<info|warning|error>", "message" => "<message>", <DATADOG_SERVICE_NAME> ]`. If an exception is thrown in the
+reporter then it should be caught and returned, the system logger will re-throw it once all other logs are performed.
 
 - `->getValue(): string|int` : if your remote reporter has a value that may be returned then this function should return
 it, otherwise return string `NOT_IMPLEMENTED`.
