@@ -13,3 +13,6 @@ shell:
 
 test\:%:
 	docker exec -it system-logger tests $@ "$(path)" "$(class)" "$(line)"
+
+report:
+	docker exec -it system-logger-metrics phpmetrics --report-html="." /code

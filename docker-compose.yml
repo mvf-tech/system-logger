@@ -6,4 +6,16 @@ services:
       dockerfile: Dockerfile
     container_name: system-logger
     volumes:
-      - ./:/package
+      - ./:/package:cached
+
+  metrics:
+    image: drupsys/phpmetrics
+    container_name: system-logger-metrics
+    volumes:
+    - ./src:/code/src:cached
+    - metrics:/usr/share/nginx/html:cached
+    ports:
+    - "8100:80"
+
+volumes:
+  metrics:
