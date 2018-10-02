@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "graze/dog-statsd": "^0.3.3"
+        "graze/dog-statsd": "^0.3.3",
+        "lstrojny/functional-php": "^1.8"
     },
     "license": "MIT"
 }

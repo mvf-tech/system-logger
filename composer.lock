@@ -4,67 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f439ba6979a1eb19ceadf46f1bc2150",
+    "content-hash": "6a033effe3f3cf49f27b9c50a130cb34",
     "packages": [
-        {
-            "name": "graze/dog-statsd",
-            "version": "0.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/graze/dog-statsd.git",
-                "reference": "3cab0aa9637f945688185d46e112cbc6dc20cff0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/graze/dog-statsd/zipball/3cab0aa9637f945688185d46e112cbc6dc20cff0",
-                "reference": "3cab0aa9637f945688185d46e112cbc6dc20cff0",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5|^7.0"
-            },
-            "require-dev": {
-                "graze/standards": "^1.0",
-                "johnkary/phpunit-speedtrap": "^1.0",
-                "phpunit/phpunit": "^4||^5",
-                "squizlabs/php_codesniffer": "^2.3,<2.8.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Graze\\DogStatsD\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Harry Bragg",
-                    "email": "harry.bragg@graze.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Graze Developers",
-                    "email": "developers@graze.com",
-                    "homepage": "http://www.graze.com",
-                    "role": "Development Team"
-                }
-            ],
-            "description": "DataDog StatsD Client",
-            "homepage": "https://github.com/graze/dog-statsd",
-            "keywords": [
-                "DataDog",
-                "dog-statsd",
-                "dogstatsd",
-                "graze",
-                "statsd"
-            ],
-            "time": "2017-08-24T12:30:36+00:00"
-        }
-    ],
-    "packages-dev": [
         {
             "name": "composer/semver",
             "version": "1.4.2",
@@ -439,6 +380,63 @@
             "time": "2018-06-10T08:26:56+00:00"
         },
         {
+            "name": "graze/dog-statsd",
+            "version": "0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/graze/dog-statsd.git",
+                "reference": "3cab0aa9637f945688185d46e112cbc6dc20cff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/graze/dog-statsd/zipball/3cab0aa9637f945688185d46e112cbc6dc20cff0",
+                "reference": "3cab0aa9637f945688185d46e112cbc6dc20cff0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5|^7.0"
+            },
+            "require-dev": {
+                "graze/standards": "^1.0",
+                "johnkary/phpunit-speedtrap": "^1.0",
+                "phpunit/phpunit": "^4||^5",
+                "squizlabs/php_codesniffer": "^2.3,<2.8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Graze\\DogStatsD\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harry Bragg",
+                    "email": "harry.bragg@graze.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graze Developers",
+                    "email": "developers@graze.com",
+                    "homepage": "http://www.graze.com",
+                    "role": "Development Team"
+                }
+            ],
+            "description": "DataDog StatsD Client",
+            "homepage": "https://github.com/graze/dog-statsd",
+            "keywords": [
+                "DataDog",
+                "dog-statsd",
+                "dogstatsd",
+                "graze",
+                "statsd"
+            ],
+            "time": "2017-08-24T12:30:36+00:00"
+        },
+        {
             "name": "leanphp/phpspec-code-coverage",
             "version": "v4.2.2",
             "source": {
@@ -508,6 +506,145 @@
                 "tests"
             ],
             "time": "2018-03-22T21:36:13+00:00"
+        },
+        {
+            "name": "lstrojny/functional-php",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lstrojny/functional-php.git",
+                "reference": "7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lstrojny/functional-php/zipball/7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26",
+                "reference": "7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Functional\\": "src/Functional"
+                },
+                "files": [
+                    "src/Functional/Average.php",
+                    "src/Functional/ButLast.php",
+                    "src/Functional/Capture.php",
+                    "src/Functional/ConstFunction.php",
+                    "src/Functional/CompareOn.php",
+                    "src/Functional/CompareObjectHashOn.php",
+                    "src/Functional/Compose.php",
+                    "src/Functional/Concat.php",
+                    "src/Functional/Contains.php",
+                    "src/Functional/Curry.php",
+                    "src/Functional/CurryN.php",
+                    "src/Functional/Difference.php",
+                    "src/Functional/DropFirst.php",
+                    "src/Functional/DropLast.php",
+                    "src/Functional/Each.php",
+                    "src/Functional/Equal.php",
+                    "src/Functional/ErrorToException.php",
+                    "src/Functional/Every.php",
+                    "src/Functional/False.php",
+                    "src/Functional/Falsy.php",
+                    "src/Functional/Filter.php",
+                    "src/Functional/First.php",
+                    "src/Functional/FirstIndexOf.php",
+                    "src/Functional/FlatMap.php",
+                    "src/Functional/Flatten.php",
+                    "src/Functional/Flip.php",
+                    "src/Functional/GreaterThan.php",
+                    "src/Functional/GreaterThanOrEqual.php",
+                    "src/Functional/Group.php",
+                    "src/Functional/Head.php",
+                    "src/Functional/Id.php",
+                    "src/Functional/IfElse.php",
+                    "src/Functional/Identical.php",
+                    "src/Functional/IndexesOf.php",
+                    "src/Functional/Intersperse.php",
+                    "src/Functional/Invoke.php",
+                    "src/Functional/InvokeFirst.php",
+                    "src/Functional/InvokeIf.php",
+                    "src/Functional/InvokeLast.php",
+                    "src/Functional/Invoker.php",
+                    "src/Functional/Last.php",
+                    "src/Functional/LastIndexOf.php",
+                    "src/Functional/LessThan.php",
+                    "src/Functional/LessThanOrEqual.php",
+                    "src/Functional/LexicographicCompare.php",
+                    "src/Functional/Map.php",
+                    "src/Functional/Match.php",
+                    "src/Functional/Maximum.php",
+                    "src/Functional/Memoize.php",
+                    "src/Functional/Minimum.php",
+                    "src/Functional/None.php",
+                    "src/Functional/Not.php",
+                    "src/Functional/PartialAny.php",
+                    "src/Functional/PartialLeft.php",
+                    "src/Functional/PartialMethod.php",
+                    "src/Functional/PartialRight.php",
+                    "src/Functional/Partition.php",
+                    "src/Functional/Pick.php",
+                    "src/Functional/Pluck.php",
+                    "src/Functional/Poll.php",
+                    "src/Functional/Product.php",
+                    "src/Functional/Ratio.php",
+                    "src/Functional/ReduceLeft.php",
+                    "src/Functional/ReduceRight.php",
+                    "src/Functional/Reindex.php",
+                    "src/Functional/Reject.php",
+                    "src/Functional/Retry.php",
+                    "src/Functional/Select.php",
+                    "src/Functional/SelectKeys.php",
+                    "src/Functional/SequenceConstant.php",
+                    "src/Functional/SequenceExponential.php",
+                    "src/Functional/SequenceLinear.php",
+                    "src/Functional/Some.php",
+                    "src/Functional/Sort.php",
+                    "src/Functional/Sum.php",
+                    "src/Functional/SuppressError.php",
+                    "src/Functional/Tap.php",
+                    "src/Functional/Tail.php",
+                    "src/Functional/TailRecursion.php",
+                    "src/Functional/True.php",
+                    "src/Functional/Truthy.php",
+                    "src/Functional/Unique.php",
+                    "src/Functional/With.php",
+                    "src/Functional/Zip.php",
+                    "src/Functional/ZipAll.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Strojny",
+                    "email": "lstrojny@php.net",
+                    "homepage": "http://usrportage.de"
+                },
+                {
+                    "name": "Max Beutel",
+                    "email": "nash12@gmail.com"
+                }
+            ],
+            "description": "Functional primitives for PHP",
+            "keywords": [
+                "functional"
+            ],
+            "time": "2018-03-19T16:14:14+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2379,11 +2516,14 @@
             "time": "2018-01-29T19:49:41+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.1.0"
+    },
     "platform-dev": []
 }
