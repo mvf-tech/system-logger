@@ -125,12 +125,6 @@ class SystemLoggerSpec extends ObjectBehavior
         $this->error([], 'asd :0 asd', $this->remote, $this->host);
     }
 
-    public function it_should_accept_constructor_parameter_without_causing_errors()
-    {
-        $this->beConstructedWith((object)[]);
-        $this->shouldNotThrow(\Exception::class)->duringInstantiation();
-    }
-
     public function it_should_throw_any_errors_during_info_log()
     {
         $this->remote->send(Argument::any())->willReturn(new \Exception());

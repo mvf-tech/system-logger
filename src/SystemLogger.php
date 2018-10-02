@@ -7,16 +7,6 @@ use MVF\SystemLogger\Core\Log;
 class SystemLogger implements SystemLoggerInterface
 {
     /**
-     * SystemLogger constructor.
-     *
-     * @param null|HostLogInterface $errorLogger The logger to be used for internal package errors
-     */
-    public function __construct($errorLogger = null)
-    {
-        // Do nothing.
-    }
-
-    /**
      * Sends an info log to the provided list of loggers.
      *
      * @param array                                         $data       The list of tags to be used by the loggers
