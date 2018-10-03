@@ -20,6 +20,7 @@ COPY bin/patch /usr/local/bin/patch
 COPY bin/minor /usr/local/bin/minor
 COPY bin/major /usr/local/bin/major
 COPY tests.sh /usr/local/bin/tests
+COPY shape /usr/local/bin/shape
 
 # Setup entrypoint
 COPY entrypoint.sh /entrypoint.sh
