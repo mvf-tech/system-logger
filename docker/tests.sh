@@ -15,7 +15,12 @@ elif [ ${arr[1]} = "coverage" ]; then
     vendor/bin/phpcbf --standard=mvf_ruleset.xml
     vendor/bin/phpcs --standard=mvf_ruleset.xml
     docker-php-ext-enable xdebug
-    shape exec --command "vendor/bin/phpspec run -f pretty -v" --shape phpspec.yml extensions=phpspec-exts.yml
+    COMMAND="vendor/bin/phpspec run -f pretty -v"
+    RXCLASSES="Classes: *(?P<classes>\d{1,3}\.\d{2})%"
+    RXMETHODS="Methods: *(?P<methods>\d{1,3}\.\d{2})%"
+    RXLINES="Lines: *(?P<lines>\d{1,3}\.\d{2})%"
+    REGEXP="$RXCLASSES.*\n.*$RXMETHODS.*\n.*$RXLINES"
+    shape exec --command "$COMMAND" --regexp "$REGEXP" --shape phpspec.yml extensions=phpspec-test.yml
     rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 elif [ ${arr[1]} = "unit" ]; then
     vendor/bin/php-cs-fixer fix

@@ -14,5 +14,10 @@ shell:
 test\:%:
 	docker exec -it system-logger tests $@ "$(path)" "$(class)" "$(line)"
 
+coverage:
+	docker exec -it system-logger coverage
+
 report:
 	docker exec -it system-logger-metrics phpmetrics --report-html="." /code
+
+.PHONY: build start down shell coverage report
