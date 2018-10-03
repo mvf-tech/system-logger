@@ -22,6 +22,7 @@ elif [ ${arr[1]} = "coverage" ]; then
     REGEXP="$RXCLASSES.*\n.*$RXMETHODS.*\n.*$RXLINES"
     shape exec --command "$COMMAND" --regexp "$REGEXP" --shape phpspec.yml extensions=phpspec-test.yml
     rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    test-coverage
 elif [ ${arr[1]} = "unit" ]; then
     vendor/bin/php-cs-fixer fix
     vendor/bin/phpcbf --standard=mvf_ruleset.xml

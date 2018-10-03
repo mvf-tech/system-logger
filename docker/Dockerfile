@@ -22,6 +22,14 @@ COPY bin/major /usr/local/bin/major
 COPY tests.sh /usr/local/bin/tests
 COPY coverage.sh /usr/local/bin/coverage
 COPY shape /usr/local/bin/shape
+COPY test-coverage.php /usr/local/bin/test-coverage
+
+ENV CLASS_COVERAGE_MAX 100
+ENV CLASS_COVERAGE_MIN 0
+ENV METHOD_COVERAGE_MAX 100
+ENV METHOD_COVERAGE_MIN 0
+ENV LINE_COVERAGE_MAX 100
+ENV LINE_COVERAGE_MIN 0
 
 # Setup entrypoint
 COPY entrypoint.sh /entrypoint.sh

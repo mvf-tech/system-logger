@@ -7,6 +7,13 @@ services:
     container_name: system-logger
     volumes:
       - ./:/package:cached
+    environment:
+      CLASS_COVERAGE_MAX: 100
+      CLASS_COVERAGE_MIN: 80
+      METHOD_COVERAGE_MAX: 100
+      METHOD_COVERAGE_MIN: 80
+      LINE_COVERAGE_MAX: 100
+      LINE_COVERAGE_MIN: 80
 
   metrics:
     image: drupsys/phpmetrics
