@@ -15,7 +15,7 @@ elif [ ${arr[1]} = "coverage" ]; then
     vendor/bin/phpcbf --standard=mvf_ruleset.xml
     vendor/bin/phpcs --standard=mvf_ruleset.xml
     docker-php-ext-enable xdebug
-    vendor/bin/phpspec run -f pretty -v
+    shape exec --command "vendor/bin/phpspec run -f pretty -v" --shape phpspec.yml extensions=phpspec-exts.yml
     rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 elif [ ${arr[1]} = "unit" ]; then
     vendor/bin/php-cs-fixer fix
