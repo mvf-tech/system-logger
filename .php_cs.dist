@@ -84,6 +84,5 @@ return PhpCsFixer\Config::create()
         "no_break_comment" => ["comment_text" => "Fallthrough intentional..."],
         "class_keyword_remove" => false,
     ])
-    ->setCacheFile("temp/.php_cs.cache")
     ->setFinder($finder)
 ;
