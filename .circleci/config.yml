@@ -1,0 +1,40 @@
+version: 2
+defaults: &defaults
+  working_directory: /package
+  docker:
+  - image: drupsys/phpspec-package-alpine
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "composer.json" }}
+    - run:
+        name: Build package
+        command: composer install
+    - run:
+        name: Linter test
+        command: tests test:lint "" "" ""
+    - run:
+        name: Unit tests
+        command: tests test:unit "" "" ""
+    - run:
+        name: Coverage test
+        command: tests test:coverage "" "" ""
+    - save_cache:
+        paths:
+        - ./vendor
+        key: v1-dependencies-{{ checksum "composer.json" }}-{{ checksum "code/composer.like.json" }}
+
+workflows:
+  version: 2
+  package-pipeline:
+    jobs:
+    - test:
+        context: org-global
+        filters:
+          branches:
+            ignore: /release_\d+\.\d+\.\d+/
