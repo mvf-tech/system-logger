@@ -16,7 +16,8 @@
     "require": {
         "php": ">=7.1.0",
         "graze/dog-statsd": "0.*",
-        "lstrojny/functional-php": "^1.8"
+        "lstrojny/functional-php": "^1.8",
+        "friendsofphp/php-cs-fixer": "^2.13"
     },
     "require-dev": {
         "leanphp/phpspec-code-coverage": "^4.2"
