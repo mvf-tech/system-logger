@@ -1,3 +1,8 @@
+LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+  format:
+  - text
+  high_lower_bound: 90
+  lower_upper_bound: 60
 suites:
   unit:
     namespace: MVF\SystemLogger
