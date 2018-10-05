@@ -11,11 +11,14 @@ down:
 shell:
 	docker exec -it system-logger sh
 
+logs:
+	docker-compose logs -f --tail=100
+
 test\:%:
 	docker exec -it system-logger tests $@ "$(path)" "$(class)" "$(line)"
 
 coverage:
-	docker exec -it system-logger coverage
+	docker exec -it system-logger-coverage coverage "$(type)"
 
 report:
 	docker exec -it system-logger-metrics phpmetrics --report-html="." /code

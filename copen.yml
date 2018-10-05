@@ -1,0 +1,25 @@
+name: system-logger
+usage: Development commands for the system logger
+commands:
+  build:
+    usage: Build the system logger containers
+    actions:
+    - docker-compose build --pull
+    - docker-compose up -d
+  start:
+    usage: Start the system logger containers
+    actions:
+    - docker-compose up -d
+  stop:
+    usage: Stop the system logger containers
+    actions:
+    - docker-compose down
+  logs:
+    usage: Show container logs
+    actions:
+    - docker-compose logs -f --tail=100
+  coverage:
+    container: system-logger-coverage
+    usage: Runs coverage tools. Run with 'html' or 'text' as the first argument
+    actions:
+    - coverage '%0%'
