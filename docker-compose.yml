@@ -45,6 +45,5 @@ services:
     - "8102:80"
 
 volumes:
-  vendor:
   metrics:
   coverage:
