@@ -6,18 +6,36 @@ commands:
     actions:
     - docker-compose build --pull
     - docker-compose up -d
+
   start:
     usage: Start the system logger containers
     actions:
     - docker-compose up -d
+
   stop:
     usage: Stop the system logger containers
     actions:
     - docker-compose down
+
   logs:
     usage: Show container logs
     actions:
     - docker-compose logs -f --tail=100
+
+  shell:
+    container: system-logger
+    usage: Opens shell in the system-logger
+    actions:
+    - sh
+
+  lint:
+    container: system-logger-linter
+    usage: Runs linter
+    actions:
+    - php-cs-fixer fix
+    - phpcbf --standard=mvf_ruleset.xml
+    - phpcs --standard=mvf_ruleset.xml
+
   coverage:
     container: system-logger-coverage
     usage: Runs coverage tools. Run with 'html' or 'text' as the first argument
