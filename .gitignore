@@ -1,5 +1,2 @@
 .idea
-coverage
 vendor
-.php_cs.cache
-copen.yml

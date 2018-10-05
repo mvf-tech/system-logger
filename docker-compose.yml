@@ -5,7 +5,7 @@ services:
     container_name: system-logger
     volumes:
       - ./:/package:cached
-      - vendor:/package/vendor:cached
+      - ./vendor:/package/vendor:cached
 
   coverage:
     image: drupsys/phpspec-coverage
@@ -14,7 +14,7 @@ services:
     - ./src:/code/src:cached
     - ./spec:/code/spec:cached
     - ./phpspec.yml:/code/phpspec.yml
-    - vendor:/code/vendor:cached
+    - ./vendor:/code/vendor:cached
     - coverage:/usr/share/nginx/html:cached
     ports:
     - "8101:80"
