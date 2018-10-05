@@ -4,8 +4,8 @@ services:
     image: drupsys/package
     container_name: system-logger
     volumes:
-      - ./:/package:cached
-      - ./vendor:/package/vendor:cached
+    - ./:/package:cached
+    - ./vendor:/package/vendor:cached
 
   tests:
     image: drupsys/phpspec
