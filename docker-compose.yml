@@ -7,6 +7,15 @@ services:
       - ./:/package:cached
       - ./vendor:/package/vendor:cached
 
+  phpspec:
+    image: drupsys/phpspec
+    container_name: system-logger-phpspec
+    volumes:
+    - ./src:/code/src:cached
+    - ./spec:/code/spec:cached
+    - ./phpspec.yml:/code/phpspec.yml
+    - ./vendor:/code/vendor:cached
+
   coverage:
     image: drupsys/phpspec-coverage
     container_name: system-logger-coverage

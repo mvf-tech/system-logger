@@ -41,3 +41,9 @@ commands:
     usage: Runs coverage tools
     actions:
     - coverage '%0%'
+
+  test:
+    container: system-logger-phpspec
+    usage: Runs tests
+    actions:
+    - phpspec run -f pretty -v
