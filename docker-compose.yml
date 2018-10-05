@@ -7,17 +7,6 @@ services:
       - ./:/package:cached
       - vendor:/package/vendor:cached
 
-  linter:
-    build:
-      context: ./php-linter
-      dockerfile: Dockerfile
-    container_name: system-logger-linter
-    volumes:
-    - ./src:/code/src:cached
-    - ./spec:/code/spec:cached
-    - ./linter/php_cs.php:/code/.php_cs.dist:cached
-    - ./linter/mvf_ruleset.xml:/code/mvf_ruleset.xml:cached
-
   coverage:
     image: drupsys/phpspec-coverage
     container_name: system-logger-coverage
@@ -36,6 +25,15 @@ services:
       METHOD_COVERAGE_MIN: 80
       LINE_COVERAGE_MAX: 100
       LINE_COVERAGE_MIN: 80
+
+  linter:
+    image: drupsys/php-linter
+    container_name: system-logger-linter
+    volumes:
+    - ./src:/code/src:cached
+    - ./spec:/code/spec:cached
+    - ./linter/php_cs.php:/code/.php_cs.dist:cached
+    - ./linter/mvf_ruleset.xml:/code/mvf_ruleset.xml:cached
 
   metrics:
     image: drupsys/phpmetrics
