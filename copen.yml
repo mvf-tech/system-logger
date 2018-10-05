@@ -2,18 +2,18 @@ name: system-logger
 usage: Development commands for the system logger
 commands:
   build:
-    usage: Build the system logger containers
+    usage: Build the containers
     actions:
     - docker-compose build --pull
     - docker-compose up -d
 
   start:
-    usage: Start the system logger containers
+    usage: Start the containers
     actions:
     - docker-compose up -d
 
   stop:
-    usage: Stop the system logger containers
+    usage: Stop the containers
     actions:
     - docker-compose down
 
@@ -33,11 +33,11 @@ commands:
     usage: Runs linter
     actions:
     - php-cs-fixer fix
-    - phpcbf --standard=mvf_ruleset.xml
+    - phpcbf --standard=mvf_ruleset.xml || true
     - phpcs --standard=mvf_ruleset.xml
 
   coverage:
     container: system-logger-coverage
-    usage: Runs coverage tools. Run with 'html' or 'text' as the first argument
+    usage: Runs coverage tools
     actions:
     - coverage '%0%'

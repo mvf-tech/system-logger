@@ -20,6 +20,11 @@ test\:%:
 coverage:
 	docker exec -it system-logger-coverage coverage "$(type)"
 
+lint:
+	docker exec -it system-logger-linter php-cs-fixer fix
+	docker exec -it system-logger-linter phpcbf --standard=mvf_ruleset.xml || true
+	docker exec -it system-logger-linter phpcs --standard=mvf_ruleset.xml
+
 report:
 	docker exec -it system-logger-metrics phpmetrics --report-html="." /code
 
