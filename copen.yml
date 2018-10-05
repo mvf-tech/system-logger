@@ -43,7 +43,7 @@ commands:
     - coverage '%0%'
 
   test:
-    container: system-logger-phpspec
+    container: system-logger-tests
     usage: Runs tests
     actions:
     - phpspec run -f pretty -v

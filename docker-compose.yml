@@ -7,9 +7,9 @@ services:
       - ./:/package:cached
       - ./vendor:/package/vendor:cached
 
-  phpspec:
+  tests:
     image: drupsys/phpspec
-    container_name: system-logger-phpspec
+    container_name: system-logger-tests
     volumes:
     - ./src:/code/src:cached
     - ./spec:/code/spec:cached

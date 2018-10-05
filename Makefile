@@ -14,8 +14,8 @@ shell:
 logs:
 	docker-compose logs -f --tail=100
 
-test\:%:
-	docker exec -it system-logger tests $@ "$(path)" "$(class)" "$(line)"
+test:
+	docker exec -it system-logger-tests phpspec run -f pretty -v
 
 coverage:
 	docker exec -it system-logger-coverage coverage "$(type)"
