@@ -3,6 +3,7 @@
 > A package used to perform DataDog and system logs
 
 ### Releases
+* 2.0.1 - [Patch Notes](./releases/2.0.1.md)
 * 2.0.0 - [Patch Notes](./releases/2.0.0.md)
 * 1.0.0
 
