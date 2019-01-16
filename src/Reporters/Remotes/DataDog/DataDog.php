@@ -13,7 +13,7 @@ use MVF\SystemLogger\Reporters\Remotes\DataDog\Methods\Unique;
 
 class DataDog
 {
-    protected $client;
+    protected static $client;
     protected $project;
     protected $service;
     protected $value = '';
@@ -32,30 +32,33 @@ class DataDog
             $env = new Env();
         }
 
-        $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
-        $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
+        if (empty(self::$client) === true) {
+            $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
+            $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
 
-        $this->host = $env->get('DATADOG_HOST_ENVVAR', 'DATADOG_HOST');
-        $this->host = $env->get($this->host, '127.0.0.1');
-        $this->port = $env->get('DATADOG_PORT', 8125);
-        $this->client = new Client();
-        $this->client->configure(
-            [
-                'host'      => $this->host,
-                'port'      => $this->port,
-                'namespace' => '',
-            ]
-        );
+            $this->host = $env->get('DATADOG_HOST_ENVVAR', 'DATADOG_HOST');
+            $this->host = $env->get($this->host, '127.0.0.1');
+            $this->port = $env->get('DATADOG_PORT', 8125);
+
+            self::$client = new Client();
+            self::$client->configure(
+                [
+                    'host'      => $this->host,
+                    'port'      => $this->port,
+                    'namespace' => '',
+                ]
+            );
+        }
     }
 
     /**
      * Sets the DataDog client.
      *
-     * @param Client $client The DataDog client
+     * @param Client|null $client The DataDog client
      */
-    public function setClient(Client $client)
+    public function setClient(?Client $client)
     {
-        $this->client = $client;
+        self::$client = $client;
     }
 
     /**
@@ -116,8 +119,6 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Decrement
-     *
-     * @deprecated 2.0.0
      */
     public static function decrement(string $suffix, int $value, float $sampleRate = 1.0): Decrement
     {
@@ -132,8 +133,6 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Increment
-     *
-     * @deprecated 2.0.0
      */
     public static function increment(string $suffix, int $value, float $sampleRate = 1.0): Increment
     {

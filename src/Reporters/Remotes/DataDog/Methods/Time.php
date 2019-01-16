@@ -56,13 +56,13 @@ class Time extends DataDog implements RemoteLogInterface
         }
 
         try {
-            $this->client->timing(
+            self::$client->timing(
                 $this->project . $this->suffix,
                 $this->value,
                 $this->addJustKeys($tags, ['time'])
             );
         } catch (\Exception $e) {
-            $this->client->histogram(
+            self::$client->histogram(
                 $this->project . '.datadog',
                 1,
                 1,
