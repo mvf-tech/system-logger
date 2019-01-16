@@ -119,8 +119,6 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Decrement
-     *
-     * @deprecated 2.0.0
      */
     public static function decrement(string $suffix, int $value, float $sampleRate = 1.0): Decrement
     {
@@ -135,8 +133,6 @@ class DataDog
      * @param float  $sampleRate The rate of sampling
      *
      * @return Increment
-     *
-     * @deprecated 2.0.0
      */
     public static function increment(string $suffix, int $value, float $sampleRate = 1.0): Increment
     {
