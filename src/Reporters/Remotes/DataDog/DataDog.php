@@ -32,7 +32,7 @@ class DataDog
             $env = new Env();
         }
 
-        if (empty(self::$client)) {
+        if (empty(self::$client) === true) {
             $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
             $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
 
