@@ -117,6 +117,7 @@ class TimeSpec extends ObjectBehavior
     {
         $handler->getMessage()->shouldBeCalled();
         $this->beConstructedWith('', [$handler, 'getMessage']);
+        $this->setClient($this->client);
         $this->send([]);
     }
 

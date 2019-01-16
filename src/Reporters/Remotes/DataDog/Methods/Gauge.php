@@ -34,13 +34,13 @@ class Gauge extends DataDog implements RemoteLogInterface
     public function send(array $tags)
     {
         try {
-            $this->client->gauge(
+            self::$client->gauge(
                 $this->project . $this->suffix,
                 $this->value,
                 $this->addJustKeys($tags, ['gauge'])
             );
         } catch (\Exception $e) {
-            $this->client->histogram(
+            self::$client->histogram(
                 $this->project . '.datadog',
                 1,
                 1,

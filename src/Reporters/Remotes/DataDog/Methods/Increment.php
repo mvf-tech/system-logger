@@ -38,14 +38,14 @@ class Increment extends DataDog implements RemoteLogInterface
     public function send(array $tags)
     {
         try {
-            $this->client->increment(
+            self::$client->increment(
                 $this->project . $this->suffix,
                 $this->value,
                 $this->sampleRate,
                 $this->addJustKeys($tags)
             );
         } catch (\Exception $e) {
-            $this->client->histogram(
+            self::$client->histogram(
                 $this->project . '.datadog',
                 1,
                 1,
