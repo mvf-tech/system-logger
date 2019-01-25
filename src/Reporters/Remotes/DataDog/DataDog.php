@@ -32,14 +32,14 @@ class DataDog
             $env = new Env();
         }
 
+        $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
+        $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
+
+        $this->host = $env->get('DATADOG_HOST_ENVVAR', 'DATADOG_HOST');
+        $this->host = $env->get($this->host, '127.0.0.1');
+        $this->port = $env->get('DATADOG_PORT', 8125);
+
         if (empty(self::$client) === true) {
-            $this->project = $env->get('DATADOG_PROJECT_NAME', 'notset');
-            $this->service = $env->get('DATADOG_SERVICE_NAME', 'notset');
-
-            $this->host = $env->get('DATADOG_HOST_ENVVAR', 'DATADOG_HOST');
-            $this->host = $env->get($this->host, '127.0.0.1');
-            $this->port = $env->get('DATADOG_PORT', 8125);
-
             self::$client = new Client();
             self::$client->configure(
                 [
