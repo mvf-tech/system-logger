@@ -30,6 +30,7 @@ class GaugeSpec extends ObjectBehavior
 
     public function it_should_return_null_if_there_was_no_errors()
     {
+        $this->setClient($this->client);
         $this->send([])->shouldReturn(null);
     }
 

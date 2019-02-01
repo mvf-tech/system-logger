@@ -31,6 +31,11 @@ class DataDogSpec extends ObjectBehavior
         $this->beConstructedWith($this->env);
     }
 
+    public function letGo()
+    {
+        $this->setClient(null);
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(DataDog::class);

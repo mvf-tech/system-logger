@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   package:
-    image: drupsys/package
+    build: .
     container_name: system-logger
     volumes:
     - ./:/package:cached

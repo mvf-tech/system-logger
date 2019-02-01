@@ -19,6 +19,7 @@
         "lstrojny/functional-php": "^1.8"
     },
     "require-dev": {
+        "phpspec/phpspec": "^5.1"
     },
     "license": "MIT"
 }
