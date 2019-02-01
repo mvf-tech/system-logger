@@ -1,5 +1,6 @@
 name: system-logger
 usage: Development commands for the system logger
+version: 0.0.1
 commands:
   build:
     usage: Build the containers
