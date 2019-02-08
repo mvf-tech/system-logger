@@ -4,28 +4,19 @@ namespace MVF\SystemLogger\Reporters\Hosts;
 
 use MVF\SystemLogger\HostLogInterface;
 
-/**
- * Class BasicStdOut.
- *
- * @package MVF\SystemLogger\Reporters\Hosts
- * @deprecated Use CommandLine object instead
- */
-class BasicStdOut implements HostLogInterface
+class CommandLine implements HostLogInterface
 {
     /**
      * Logs an info message to standard out.
      *
      * @param mixed $message Message to be logged
-     * @deprecated Use CommandLine object instead
      *
      * @return \Exception|null
      */
     public function info($message)
     {
-        try {
-            echo "${message}\n";
-        } catch (\Exception $e) {
-            return $e;
+        if (fwrite(STDOUT, $message . PHP_EOL) === false) {
+            return new \Exception('Failed to write to stdout file', 1);
         }
 
         return null;
@@ -35,16 +26,13 @@ class BasicStdOut implements HostLogInterface
      * Logs an warning message to standard out.
      *
      * @param mixed $message Message to be logged
-     * @deprecated Use CommandLine object instead
      *
      * @return \Exception|null
      */
     public function warning($message)
     {
-        try {
-            echo "${message}\n";
-        } catch (\Exception $e) {
-            return $e;
+        if (fwrite(STDOUT, $message . PHP_EOL) === false) {
+            return new \Exception('Failed to write to stdout file', 1);
         }
 
         return null;
@@ -54,16 +42,13 @@ class BasicStdOut implements HostLogInterface
      * Logs an error message to standard out.
      *
      * @param mixed $message Message to be logged
-     * @deprecated Use CommandLine object instead
      *
      * @return \Exception|null
      */
     public function error($message)
     {
-        try {
-            echo "${message}\n";
-        } catch (\Exception $e) {
-            return $e;
+        if (fwrite(STDERR, $message . PHP_EOL) === false) {
+            return new \Exception('Failed to write to stderr file', 1);
         }
 
         return null;
