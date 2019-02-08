@@ -3,6 +3,7 @@
 > A package used to perform DataDog and system logs
 
 ### Releases
+* 2.1.0 - [Patch Notes](./releases/2.1.0.md)
 * 2.0.2 - [Patch Notes](./releases/2.0.2.md)
 * 2.0.1 - [Patch Notes](./releases/2.0.1.md)
 * 2.0.0 - [Patch Notes](./releases/2.0.0.md)
@@ -17,19 +18,19 @@
 
 ```php
 use MVF\SystemLogger\Reporters\Remotes\DataDog\DataDog;
-use MVF\SystemLogger\Reporters\Host\BasicStdOut;
+use MVF\SystemLogger\Reporters\Host\CommandLine;
 use MVF\SystemLogger\SystemLogger;
 
 $logger = new SystemLogger();
 $logger->info(
     ["some_kind_of_tag", "key" => "another_tag"],
     "message",
-    new BasicStdOut(),
+    new CommandLine(),
     DataDog::histogram("metric_name_suffix", 2)
 );
 ```
 
-There are two type of reporters available, `host` reporters, `BasicStdOut` in the above example, and `remote` 
+There are two type of reporters available, `host` reporters, `CommandLine` in the above example, and `remote` 
 reporters, `DataDog.histogram(...)` in the above example. `host` reporters are used to log messages, these reporters do 
 not receive the list of tags and therefore are not able to do anything with it. `remote` reporters are used to make more
 complex logs, they receive only the list of tags, the message is appended to the tag list as 
@@ -70,7 +71,7 @@ $logger->info(
         "name" => "Bob"                     // tag key name
     ], 
     "There are :1 messages from :name",
-    new BasicStdOut(),                      // reporter index 0
+    new CommandLine(),                      // reporter index 0
     DataDog::histogram("messages", 2),      // reporter index 1
     ...                                     // reporter index ...
 );
@@ -82,15 +83,15 @@ reporters so in the above example `:1` would be replaced with the value of `Data
 this case would be `2`.
 
 #####Notes
-- `:0` would not be replaced since `BasicStdOut` implements `HostLogInterface` and host reporters do not have any 
+- `:0` would not be replaced since `CommandLine` implements `HostLogInterface` and host reporters do not have any 
 return value.
 
 ### Default Reporters
 
 These are responsible for the actual logging of information. At the moment there are two default reporters built in 
-`BasicStdOut` and `DataDog`.
+`CommandLine` and `DataDog`.
 
-#### BasicStdOut
+#### CommandLine
 
 This is a basic reporter that will simply echo messages to the standard out.
 
