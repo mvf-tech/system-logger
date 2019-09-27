@@ -28,10 +28,6 @@ class InputHandler
         }
 
         $this->message = preg_replace($patterns, $replacements, $message);
-        if (empty($this->message) === false) {
-            $tags['message'] = $this->message;
-        }
-
         $this->tags = $tags;
         $this->messageWithValues = $this->message;
     }

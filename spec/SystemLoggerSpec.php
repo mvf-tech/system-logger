@@ -62,12 +62,6 @@ class SystemLoggerSpec extends ObjectBehavior
         $this->error([], '', $this->remote);
     }
 
-    public function it_should_add_message_to_the_list_of_tags()
-    {
-        $this->remote->send(Argument::withEntry('message', 'test'))->shouldBeCalled();
-        $this->error([], 'test', $this->remote);
-    }
-
     public function it_should_not_add_message_to_the_list_of_tags_if_message_is_empty()
     {
         $this->remote->send(Argument::not(Argument::withEntry('message', '')))->shouldBeCalled();

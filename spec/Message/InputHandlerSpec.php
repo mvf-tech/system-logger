@@ -63,12 +63,6 @@ class InputHandlerSpec extends ObjectBehavior
         $this->getMessage()->shouldReturn('Hello :A');
     }
 
-    public function it_should_add_message_to_tags()
-    {
-        $this->beConstructedWith(['asd' => 'A', 'A' => 'B'], 'Hello ::asd');
-        $this->getTags()->shouldBeLike(['asd' => 'A', 'A' => 'B', 'message' => 'Hello :A']);
-    }
-
     public function it_should_not_add_message_to_tags_if_message_is_empty()
     {
         $this->beConstructedWith(['asd' => 'A', 'A' => 'B'], '');
