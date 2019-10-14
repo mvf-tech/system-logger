@@ -9,7 +9,7 @@ interface HostLogInterface
      *
      * @param mixed $message Message to be logged
      *
-     * @return bool
+     * @return \Exception|null
      */
     public function info($message);
 
@@ -18,7 +18,7 @@ interface HostLogInterface
      *
      * @param mixed $message Message to be logged
      *
-     * @return bool
+     * @return \Exception|null
      */
     public function warning($message);
 
@@ -27,7 +27,7 @@ interface HostLogInterface
      *
      * @param mixed $message Message to be logged
      *
-     * @return bool
+     * @return \Exception|null
      */
     public function error($message);
 }
