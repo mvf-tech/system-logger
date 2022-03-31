@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "graze/dog-statsd": "0.*",
+        "graze/dog-statsd": "0.*|1.*",
         "lstrojny/functional-php": "^1.8"
     },
     "require-dev": {
