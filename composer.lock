@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b5e4701fe2df483dd1323f541a3b9ef",
+    "content-hash": "9fc00881c2f6505af31063780b92ac42",
     "packages": [
         {
             "name": "graze/dog-statsd",
-            "version": "0.4.0",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/graze/dog-statsd.git",
-                "reference": "f001f5d5a4fe342b97a1caa648532ea0a5aeab69"
+                "reference": "a4daf25cf211384f2fc8c2feab7e8393bfd96766"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/graze/dog-statsd/zipball/f001f5d5a4fe342b97a1caa648532ea0a5aeab69",
-                "reference": "f001f5d5a4fe342b97a1caa648532ea0a5aeab69",
+                "url": "https://api.github.com/repos/graze/dog-statsd/zipball/a4daf25cf211384f2fc8c2feab7e8393bfd96766",
+                "reference": "a4daf25cf211384f2fc8c2feab7e8393bfd96766",
                 "shasum": ""
             },
             "require": {
@@ -61,39 +61,38 @@
                 "graze",
                 "statsd"
             ],
-            "time": "2018-06-26T12:06:28+00:00"
+            "support": {
+                "issues": "https://github.com/graze/dog-statsd/issues",
+                "source": "https://github.com/graze/dog-statsd/tree/0.4.3"
+            },
+            "time": "2021-01-22T13:53:57+00:00"
         },
         {
             "name": "lstrojny/functional-php",
-            "version": "1.8.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lstrojny/functional-php.git",
-                "reference": "7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26"
+                "reference": "e459d5cb307bc6e10e9e992c4e96bb71a0262506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lstrojny/functional-php/zipball/7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26",
-                "reference": "7d677bbc1dbf8338946cd3b31f0d5c2beb2b5a26",
+                "url": "https://api.github.com/repos/lstrojny/functional-php/zipball/e459d5cb307bc6e10e9e992c4e96bb71a0262506",
+                "reference": "e459d5cb307bc6e10e9e992c4e96bb71a0262506",
                 "shasum": ""
             },
             "require": {
-                "php": "~7"
+                "php": "^7.1|~8"
             },
             "require-dev": {
-                "phpunit/phpunit": "~6"
+                "friendsofphp/php-cs-fixer": "^2.17",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.5",
+                "squizlabs/php_codesniffer": "~3.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "Functional\\": "src/Functional"
-                },
                 "files": [
+                    "src/Functional/Ary.php",
                     "src/Functional/Average.php",
                     "src/Functional/ButLast.php",
                     "src/Functional/Capture.php",
@@ -103,6 +102,7 @@
                     "src/Functional/Compose.php",
                     "src/Functional/Concat.php",
                     "src/Functional/Contains.php",
+                    "src/Functional/Converge.php",
                     "src/Functional/Curry.php",
                     "src/Functional/CurryN.php",
                     "src/Functional/Difference.php",
@@ -140,12 +140,14 @@
                     "src/Functional/LessThanOrEqual.php",
                     "src/Functional/LexicographicCompare.php",
                     "src/Functional/Map.php",
-                    "src/Functional/Match.php",
+                    "src/Functional/Matching.php",
                     "src/Functional/Maximum.php",
                     "src/Functional/Memoize.php",
                     "src/Functional/Minimum.php",
                     "src/Functional/None.php",
+                    "src/Functional/Noop.php",
                     "src/Functional/Not.php",
+                    "src/Functional/OmitKeys.php",
                     "src/Functional/PartialAny.php",
                     "src/Functional/PartialLeft.php",
                     "src/Functional/PartialMethod.php",
@@ -160,6 +162,7 @@
                     "src/Functional/ReduceRight.php",
                     "src/Functional/Reindex.php",
                     "src/Functional/Reject.php",
+                    "src/Functional/Repeat.php",
                     "src/Functional/Retry.php",
                     "src/Functional/Select.php",
                     "src/Functional/SelectKeys.php",
@@ -173,13 +176,19 @@
                     "src/Functional/Tap.php",
                     "src/Functional/Tail.php",
                     "src/Functional/TailRecursion.php",
+                    "src/Functional/TakeLeft.php",
+                    "src/Functional/TakeRight.php",
                     "src/Functional/True.php",
                     "src/Functional/Truthy.php",
                     "src/Functional/Unique.php",
+                    "src/Functional/ValueToKey.php",
                     "src/Functional/With.php",
                     "src/Functional/Zip.php",
                     "src/Functional/ZipAll.php"
-                ]
+                ],
+                "psr-4": {
+                    "Functional\\": "src/Functional"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -189,7 +198,7 @@
                 {
                     "name": "Lars Strojny",
                     "email": "lstrojny@php.net",
-                    "homepage": "http://usrportage.de"
+                    "homepage": "https://usrportage.de"
                 },
                 {
                     "name": "Max Beutel",
@@ -200,7 +209,17 @@
             "keywords": [
                 "functional"
             ],
-            "time": "2018-03-19T16:14:14+00:00"
+            "support": {
+                "issues": "https://github.com/lstrojny/functional-php/issues",
+                "source": "https://github.com/lstrojny/functional-php/tree/1.17.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lstrojny",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-07T00:25:34+00:00"
         }
     ],
     "packages-dev": [
@@ -1365,7 +1384,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0"
+        "php": "^7.1|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
